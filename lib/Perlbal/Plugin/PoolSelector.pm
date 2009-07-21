@@ -93,8 +93,7 @@ Perlbal::Plugin::PoolSelector - let URL match it in regular expression
 
     LOAD PoolSelector
     CREATE SERVICE example
-        SET role            = reverse_proxy
-        SET pool            = example_pool
+        SET role    = reverse_proxy
         SET plugins = PoolSelector
         POOL_DEFAULT app_pool
         POOL_SELECTOR /output/ = example_output_pool
