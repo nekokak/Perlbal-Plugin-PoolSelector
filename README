@@ -1,11 +1,11 @@
-This is Perl module DBIx::Skinny.
+This is Perl module Perlbal::Plugin::PoolSelector.
 
 INSTALLATION
 
-DBIx::Skinny installation is straightforward. If your CPAN shell is set up,
+Perlbal::Plugin::PoolSelector installation is straightforward. If your CPAN shell is set up,
 you should just be able to do
 
-    % cpan DBIx::Skinny
+    % cpan Perlbal::Plugin::PoolSelector
 
 Download it, unpack it, then build it as per the usual:
 
@@ -18,9 +18,9 @@ Then install it:
 
 DOCUMENTATION
 
-DBIx::Skinny documentation is available as in POD. So you can do:
+Perlbal::Plugin::PoolSelector documentation is available as in POD. So you can do:
 
-    % perldoc DBIx::Skinny
+    % perldoc Perlbal::Plugin::PoolSelector
 
 to read the documentation online with your favorite pager.
 

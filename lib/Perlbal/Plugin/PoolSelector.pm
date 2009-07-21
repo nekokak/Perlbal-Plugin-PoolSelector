@@ -22,8 +22,7 @@ sub load {
         return $mc->err("Service '$selname' is not a reverse_proxy service")
             unless $ss && $ss->{role} eq "reverse_proxy";
 
-        $ss->{extra_config}->{_poolselector} ||= +{};
-        $ss->{extra_config}->{_poolselector}->{$regex} = $pool_name;
+        push(@{$ss->{extra_config}->{_poolselectors}}, [$regex, $pool_name]);
 
         return $mc->ok;
     });
@@ -63,9 +62,10 @@ sub register {
             $chk_uri =~ s/\?.+$//g;
 
             $svc->{pool} = '';
-            for my $reg (keys %{$svc->{extra_config}->{_poolselector}}) {
+            for my $setting ( @{$svc->{extra_config}->{_poolselectors}} ) {
+                my ($reg, $pool_name) = @{$setting};
                 if ($chk_uri =~ /$reg/) {
-                    my $pool = Perlbal->pool($svc->{extra_config}->{_poolselector}->{$reg});
+                    my $pool = Perlbal->pool($pool_name);
                     $svc->{pool} = $pool;
                 }
             }
