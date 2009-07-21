@@ -67,6 +67,7 @@ sub register {
                 if ($chk_uri =~ /$reg/) {
                     my $pool = Perlbal->pool($pool_name);
                     $svc->{pool} = $pool;
+                    last;
                 }
             }
             unless ($svc->{pool}) {
